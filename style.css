@@ -32,6 +32,246 @@ body {
 ::selection { background: var(--accent); color: #000; }
 
 /* ───────────────────────────────────────────
+   SCROLL PROGRESS
+───────────────────────────────────────────── */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3));
+  background-size: 200% 100%;
+  z-index: 10000;
+  width: 0%;
+  transition: width 0.1s ease-out;
+  animation: progressShimmer 2s linear infinite;
+}
+#scroll-progress::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  animation: progressGlow 1.5s ease-in-out infinite;
+}
+@keyframes progressShimmer { to { background-position: 200% 0; } }
+@keyframes progressGlow { 
+  0%,100% { transform: translateX(-100px); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateX(100px); opacity: 0; }
+}
+
+/* ───────────────────────────────────────────
+   TEXT SCRAMBLE / DECODE EFFECT
+───────────────────────────────────────────── */
+.scramble-text {
+  display: inline-block;
+  font-family: var(--font-mono);
+  letter-spacing: 2px;
+}
+.scramble-text.decoded {
+  animation: decodedGlow 0.5s ease-out;
+}
+@keyframes decodedGlow {
+  0% { text-shadow: 0 0 20px var(--accent), 0 0 40px var(--accent); }
+  100% { text-shadow: none; }
+}
+
+/* ───────────────────────────────────────────
+   ENHANCED SCROLL REVEALS
+───────────────────────────────────────────── */
+.reveal-blur {
+  opacity: 0;
+  filter: blur(10px);
+  transform: translateY(40px);
+  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease), filter 0.8s var(--ease);
+}
+.reveal-blur.visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: none;
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+}
+.reveal-left.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+}
+.reveal-right.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.85) translateY(40px);
+  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease-bounce);
+}
+.reveal-scale.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.reveal-rotate {
+  opacity: 0;
+  transform: rotateX(15deg) translateY(60px);
+  transform-origin: center bottom;
+  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+}
+.reveal-rotate.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Word-by-word reveal for titles */
+.word-reveal .word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+}
+.word-reveal.visible .word {
+  opacity: 1;
+  transform: none;
+}
+
+/* ───────────────────────────────────────────
+   3D CARD TILT EFFECT
+───────────────────────────────────────────── */
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease-out;
+  will-change: transform;
+}
+.tilt-card .tilt-content {
+  transform: translateZ(30px);
+  transition: transform 0.3s ease-out;
+}
+.tilt-card:hover .tilt-content {
+  transform: translateZ(50px);
+}
+
+/* ───────────────────────────────────────────
+   PARALLAX LAYERS
+───────────────────────────────────────────── */
+.parallax-slow {
+  will-change: transform;
+}
+.parallax-fast {
+  will-change: transform;
+}
+
+/* ───────────────────────────────────────────
+   NAV ACTIVE STATES
+───────────────────────────────────────────── */
+.nav-links a.active {
+  color: var(--accent);
+}
+.nav-links a.active::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Nav indicator pill */
+.nav-indicator {
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  border-radius: 2px;
+  transition: all 0.4s var(--ease);
+  pointer-events: none;
+}
+
+/* ───────────────────────────────────────────
+   BUTTON RIPPLE EFFECT
+───────────────────────────────────────────── */
+.btn-ripple {
+  position: relative;
+  overflow: hidden;
+}
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.4);
+  transform: scale(0);
+  animation: rippleEffect 0.6s linear;
+  pointer-events: none;
+}
+@keyframes rippleEffect {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* ───────────────────────────────────────────
+   ENHANCED GLOW EFFECTS
+───────────────────────────────────────────── */
+.glow-text {
+  animation: textGlow 3s ease-in-out infinite;
+}
+@keyframes textGlow {
+  0%,100% { text-shadow: 0 0 20px rgba(126,232,250,0.3), 0 0 40px rgba(126,232,250,0.1); }
+  50% { text-shadow: 0 0 30px rgba(126,232,250,0.5), 0 0 60px rgba(126,232,250,0.2); }
+}
+
+/* Shimmer border animation */
+.shimmer-border {
+  position: relative;
+}
+.shimmer-border::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3), var(--accent));
+  background-size: 300% 100%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: borderRotate 3s linear infinite;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.shimmer-border:hover::before {
+  opacity: 1;
+}
+@keyframes borderRotate {
+  to { background-position: 300% 0; }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-blur, .reveal-left, .reveal-right, .reveal-scale, .reveal-rotate {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+  .tilt-card {
+    transform: none !important;
+  }
+  .parallax-slow, .parallax-fast {
+    transform: none !important;
+  }
+}
+
+/* ───────────────────────────────────────────
    CUSTOM CURSOR
 ───────────────────────────────────────────── */
 #cursor-dot, #cursor-ring {

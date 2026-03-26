@@ -21,6 +21,9 @@
   <div class="pre-count" id="preCount">0%</div>
 </div>
 
+<!-- SCROLL PROGRESS -->
+<div id="scroll-progress"></div>
+
 <!-- NAV -->
 <nav id="nav">
   <a href="#home" class="nav-logo">Arslan<span>.</span></a>
@@ -38,9 +41,9 @@
 </nav>
 
 <!-- HERO -->
-<section id="home">
-  <div class="hero-grid-bg"></div>
-  <div class="hero-orbs">
+<section id="home" class="reveal-blur">
+  <div class="hero-grid-bg parallax-slow"></div>
+  <div class="hero-orbs parallax-fast">
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
     <div class="orb orb-3"></div>
@@ -52,7 +55,7 @@
     <div class="hero-badge">
       <i></i> Available for work
     </div>
-    <h1 class="hero-name" id="heroName">
+    <h1 class="hero-name glow-text" id="heroName">
       <span class="line1">Hello, I'm</span><span class="line2">Arslan.</span>
     </h1>
     <p class="hero-sub">
@@ -83,8 +86,8 @@
 </div>
 
 <!-- ABOUT -->
-<section id="about">
-  <div class="about-visual reveal">
+<section id="about" class="reveal-blur">
+  <div class="about-visual reveal-blur">
     <div class="about-img-wrap">
       <img src="assets/profilephoto.jpeg" alt="Arslan" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80'">
       <div class="about-img-overlay"></div>
@@ -99,7 +102,7 @@
     </div>
   </div>
 
-  <div class="about-text reveal">
+  <div class="about-text reveal-blur">
     <div class="section-label" style="justify-content:flex-start;display:flex;">About Me</div>
     <h2 class="section-title" style="text-align:left;">Passionate about<br>Intelligent Systems</h2>
     <p class="section-desc" style="text-align:left;">
@@ -151,14 +154,14 @@
 </section>
 
 <!-- PROJECTS -->
-<section id="projects">
-  <div class="section-header reveal">
+<section id="projects" class="reveal-blur">
+  <div class="section-header reveal-blur">
     <div class="section-label">Work</div>
     <h2 class="section-title">Selected Projects</h2>
     <p class="section-desc">A showcase of my best work in AI, web development, and data science.</p>
   </div>
   <div class="projects-grid stagger-children">
-    <div class="project-card featured">
+    <div class="project-card featured shimmer-border">
       <div class="project-img-wrap">
         <img class="project-img" src="https://i.imghippo.com/files/FvK2993epc.jpg" alt="Project 1" onerror="this.style.background='linear-gradient(135deg,#111117,#1a1a24)';this.src=''">
         <div class="project-img-overlay"></div>
@@ -174,7 +177,7 @@
         <a href="#" class="project-arrow">View Project <span>→</span></a>
       </div>
     </div>
-    <div class="project-card">
+    <div class="project-card shimmer-border">
       <div class="project-img-wrap">
         <img class="project-img" src="https://i.imghippo.com/files/rlY2489ar.jpg" alt="Project 2" onerror="this.style.background='linear-gradient(135deg,#111117,#1a1a24)';this.src=''">
         <div class="project-img-overlay"></div>
@@ -186,7 +189,7 @@
         <a href="#" class="project-arrow">View Project <span>→</span></a>
       </div>
     </div>
-    <div class="project-card">
+    <div class="project-card shimmer-border">
       <div class="project-img-wrap">
         <img class="project-img" src="https://i.imghippo.com/files/Bj3358I.png" alt="Project 3" onerror="this.style.background='linear-gradient(135deg,#111117,#1a1a24)';this.src=''">
         <div class="project-img-overlay"></div>
@@ -198,7 +201,7 @@
         <a href="#" class="project-arrow">View Project <span>→</span></a>
       </div>
     </div>
-    <div class="project-card">
+    <div class="project-card shimmer-border">
       <div class="project-img-wrap">
         <img class="project-img" src="https://i.imghippo.com/files/URT7299PAc.png" alt="Project 4" onerror="this.style.background='linear-gradient(135deg,#111117,#1a1a24)';this.src=''">
         <div class="project-img-overlay"></div>
@@ -214,38 +217,38 @@
 </section>
 
 <!-- SERVICES -->
-<section id="services">
-  <div class="section-header reveal">
+<section id="services" class="reveal-blur">
+  <div class="section-header reveal-blur">
     <div class="section-label">What I Do</div>
     <h2 class="section-title">Services</h2>
     <p class="section-desc">From intelligent AI pipelines to polished web interfaces — end-to-end solutions that combine research with production-grade engineering.</p>
   </div>
   <div class="services-grid stagger-children">
-    <div class="service-card reveal">
+    <div class="service-card reveal-scale shimmer-border">
       <div class="service-icon">🤖</div>
       <div class="service-title">Agentic AI</div>
       <p class="service-desc">Design and deployment of autonomous AI agents using LangGraph and Phi Data — systems that reason, adapt, and execute complex tasks independently.</p>
       <div class="service-line"></div>
     </div>
-    <div class="service-card reveal">
+    <div class="service-card reveal-scale shimmer-border">
       <div class="service-icon">🧠</div>
       <div class="service-title">NLP & LLMs</div>
       <p class="service-desc">Natural Language Processing solutions for text analysis, sentiment detection, semantic search, and conversational AI using state-of-the-art language models.</p>
       <div class="service-line"></div>
     </div>
-    <div class="service-card reveal">
+    <div class="service-card reveal-scale shimmer-border">
       <div class="service-icon">🔍</div>
       <div class="service-title">Vector Search & RAG</div>
       <p class="service-desc">Scalable retrieval-augmented generation pipelines with Pinecone vector databases for intelligent document search and knowledge management.</p>
       <div class="service-line"></div>
     </div>
-    <div class="service-card reveal">
+    <div class="service-card reveal-scale shimmer-border">
       <div class="service-icon">⚡</div>
       <div class="service-title">AI Integration</div>
       <p class="service-desc">Seamless integration of AI capabilities into existing products — APIs, SDKs, and custom middleware that bring intelligence to any platform.</p>
       <div class="service-line"></div>
     </div>
-    <div class="service-card reveal">
+    <div class="service-card reveal-scale shimmer-border">
       <div class="service-icon">📊</div>
       <div class="service-title">Data Science</div>
       <p class="service-desc">End-to-end data pipelines, exploratory analysis, model training, and deployment — turning raw data into actionable business intelligence.</p>
@@ -256,7 +259,7 @@
 
 <!-- TECH STACK -->
 <section id="tech">
-  <div class="reveal" style="text-align:center;">
+  <div class="reveal-blur" style="text-align:center;">
     <div class="section-label" style="justify-content:center;display:flex;">Tech Stack</div>
     <h2 class="section-title">Tools & Technologies</h2>
     <p class="section-desc" style="margin:0 auto;">The technologies I use to build intelligent, scalable, and beautiful products.</p>
@@ -276,7 +279,7 @@
 <!-- CONTACT -->
 <section id="contact">
   <div class="contact-glow"></div>
-  <div class="reveal">
+  <div class="reveal-blur">
     <div class="section-label" style="justify-content:center;display:flex;">Contact</div>
     <h2 class="section-title">Let's Build<br>Together.</h2>
     <p class="section-desc">Have a project in mind? Open to collaborations, freelance work, and exciting opportunities.</p>
