@@ -114,7 +114,7 @@ scrambleElements.forEach(el => {
 });
 
 /* ── MARQUEE FILL ── */
-const items = ['Generative AI','Agentic Systems','NLP','LangChain','LangGraph','Vector Search','RAG','Python','Data Science'];
+const items = ['Generative AI','Agentic Systems','NLP','LangChain','LangGraph','Vue.js','React.js','Next.js','Tailwind CSS','Full-Stack Development','SaaS Products','TypeScript'];
 const doubled = [...items,...items].map(t=>`<span><b>✦</b> ${t}</span>`).join('');
 const track = document.getElementById('marqueeTrack');
 track.innerHTML = doubled + doubled;
